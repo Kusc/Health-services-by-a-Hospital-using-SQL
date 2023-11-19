@@ -1,0 +1,8 @@
+SELECT D.dep_name, SUM(CAST(_fees_ AS FLOAT64)) AS total_fees
+FROM `healthcare-project-405207.health_services.Treatments` AS T
+inner join `healthcare-project-405207.health_services.departments` AS D
+ON T.dep_no = D.dep_no
+GROUP BY D.dep_name
+ORDER BY total_fees DESC
+LIMIT 5;
+
